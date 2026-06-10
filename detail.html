@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Produk - STARVVO</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Navigasi Minimalis */
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #e53935;
+      letter-spacing: 1px;
+    }
+    header nav a {
+      color: #bbb;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+    header nav a:hover {
+      color: #fff;
+    }
+
+    /* Layout Utama Modern (Two-Column Grid) */
+    .detail-wrapper {
+      max-width: 1200px;
+      margin: 120px auto 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* Bagian Kiri: Visual/Gambar */
+    .product-gallery {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 120px;
+      text-align: center;
+    }
+    .detail-img {
+      max-width: 100%;
+      max-height: 450px;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .detail-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Bagian Kanan: Konten Informasi */
+    .product-info {
+      padding: 10px 0;
+    }
+    .company-tag {
+      color: #e53935;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    #judul {
+      font-size: 36px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+    #deskripsi {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    /* Bagian List Varian (Interactive Chips Style) */
+    .section-subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 5px;
+      border-left: 3px solid #e53935;
+      padding-left: 10px;
+    }
+    .section-hint {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 15px;
+      display: block;
+    }
+    .variants-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .variant-chip {
+      background: #eee;
+      color: #444;
+      padding: 8px 16px;
+      font-size: 13px;
+      border-radius: 20px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .variant-chip:hover {
+      background: #e53935;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(229, 57, 53, 0.2);
+    }
+
+    /* Bagian Tabel Spesifikasi */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 35px;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+    .specs-table tr {
+      border-bottom: 1px solid #eee;
+    }
+    .specs-table tr:last-child {
+      border-bottom: none;
+    }
+    .specs-table td {
+      padding: 12px 15px;
+      font-size: 14px;
+    }
+    .specs-key {
+      font-weight: 600;
+      color: #555;
+      width: 35%;
+      background-color: #fafafa;
+    }
+    .specs-value {
+      color: #333;
+    }
+
+    /* Tombol Aksi / CTA Buttons */
+    .cta-group {
+      display: flex;
+      gap: 15px;
+    }
+    .btn {
+      flex: 1;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-wa {
+      background-color: #25D366;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+    .btn-wa:hover {
+      background-color: #20ba5a;
+      transform: translateY(-2px);
+    }
+    .btn-back {
+      background-color: #fff;
+      color: #555;
+      border: 1px solid #ccc;
+    }
+    .btn-back:hover {
+      background-color: #f5f5f5;
+      color: #111;
+    }
+
+    /* State Error / Not Found */
+    .not-found-box {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .not-found-box h1 { font-size: 28px; color: #333; margin-bottom: 10px;}
+    .not-found-box a { color: #e53935; text-decoration: none; font-weight: 600;}
+
+    /* Responsive untuk Handphone */
+    @media (max-width: 768px) {
+      .detail-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 90px;
+      }
+      .product-gallery {
+        position: relative;
+        top: 0;
+      }
+      #judul { font-size: 28px; }
+      .cta-group { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">STARVVO</div>
+    <nav>
+    <a href="index2.html">Home</a>
+    <a href="index2.html#products">Products</a>
+    <a href="about.html">About Us</a>
+    <a href="artikel.html">Artikel</a>
+    <a href="compliance.html">Compliance</a>
+    <a href="portofolio1.html">Portofolio</a>
+    <a href="index2.html#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="detail-wrapper" id="main-content">
+    
+    <section class="product-gallery">
+      <img id="gambar" class="detail-img" src="" alt="Gambar Produk" />
+    </section>
+
+    <section class="product-info">
+      <span class="company-tag">STARVVO Fire Solution</span>
+      <h1 id="judul">Memuat Produk...</h1>
+      <p id="deskripsi">Silakan tunggu sebentar, sistem sedang memuat spesifikasi produk.</p>
+      
+      <h3 class="section-subtitle">Pilihan Varian / Jenis</h3>
+      <div class="variants-container" id="varian-box">
+        </div>
+
+      <h3 class="section-subtitle" style="margin-bottom: 15px;">Spesifikasi Teknis</h3>
+      <table class="specs-table">
+        <tbody id="spesifikasi-table">
+          </tbody>
+      </table>
+
+      <div class="cta-group">
+        <a href="index2.html" class="btn btn-back">Lihat Produk Lain</a>
+        <a id="wa-link" href="#" target="_blank" class="btn btn-wa">
+          Hubungi Sales (WhatsApp)
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 1. Ambil nama parameter produk dari URL
+    const params = new URLSearchParams(window.location.search);
+    const namaProduk = params.get('produk');
+
+    // 2. Pusat Data Terstruktur dengan File Brosur PDF (Dummy)
+    const data = {
+      'fire-extinguisher': {
+        title: 'Fire Extinguisher System',
+        image: 'assets/image/detail/1.png',
+        description: 'STARVVO menghadirkan alat pemadam api ringan (APAR) berkualitas tinggi yang dirancang untuk memberikan perlindungan maksimal terhadap risiko kebakaran di berbagai lingkungan, mulai dari rumah, perkantoran, kendaraan, hingga area industri. Menggunakan material tabung yang kokoh, sistem keamanan terpercaya, berstandar SNI, serta media pemadam yang efektif, STARVVO mampu menangani berbagai klasifikasi kebakaran dengan cepat dan efisien. Tersedia dalam pilihan Powder, CO₂, Foam, dan Clean Agent, setiap produk STARVVO dibuat dengan standar SNI dan bermutu tinggi agar mudah digunakan, tahan lama, dan siap digunakan dalam kondisi darurat. Dengan desain modern dan performa andal, STARVVO menjadi solusi tepat untuk kebutuhan proteksi kebakaran yang aman dan profesional.',
+        variants: [
+          { name: 'Dry Chemical Powder', pdf: 'Brosur dan price list apar/list price apar powder.pdf' },
+          { name: 'AFFF Foam', pdf: 'Brosur dan price list apar/05.-list-harga-tabung-starvvo-foam.pdf' },
+          { name: 'CO2 (Carbon Dioxide)', pdf: 'Brosur dan price list apar/05.-list-harga-tabung-starvvo-co2.pdf' },
+          { name: 'AF-11 Clean Agent', pdf: 'Brosur dan price list apar/05.-list-harga-tabung-starvvo-af-11.pdf' },
+          { name: 'AF-36 Clean Agent', pdf: 'Brosur dan price list apar/05.-list-harga-tabung-starvvo-af-36.pdf' },
+          { name: 'F500', pdf: 'Brosur dan price list apar/PRICE LIST APAR F500 Tabung SS & Mild Steel Merah (GMP).pdf' }
+        ],
+        spesifikasi: { 'Kapasitas': '1 kg s/d 200 kg', 'Standar Mutu': 'SNI / CE Certified', 'Garansi Resmi': '2 Tahun', 'Media': 'Premium Powder / Gas / Foam' }
+      },
+      'fire-alarm-system': {
+        title: 'Fire Alarm System',
+        image: 'assets/image/detail/5.png',
+        description: 'STARVVO  menghadirkan Fire Alarm System profesional dengan teknologi deteksi kebakaran yang presisi, respons cepat, dan performa yang andal untuk mendukung standar keselamatan. Dirancang untuk berbagai kebutuhan bangunan komersial, industri, perkantoran, fasilitas publik, hingga hunian, sistem ini mampu memberikan peringatan dini secara efektif guna meminimalkan risiko dan potensi kerugian akibat kebakaran.Didukung dengan integrasi perangkat berkualitas tinggi dan berstandar SNI seperti control panel, smoke detector, heat detector, manual call point, dan alarm notification system, STARVVO memastikan proses monitoring dan notifikasi berjalan optimal dalam kondisi darurat. Dengan desain sistem yang efisien, instalasi yang fleksibel, serta kualitas yang memenuhi standar proteksi kebakaran, STARVVO menjadi solusi terpercaya untuk menciptakan lingkungan yang lebih aman, profesional, dan terproteksi secara maksimal.',
+        variants: [
+          { name: 'Smoke Detector', pdf: 'Brosur dan price list apar/NEW PRICE LIST FIRE ALARM DEMCO 2024 (1).pdf' },
+          { name: 'Panel MCFA', pdf: 'Brosur dan price list apar/NEW PRICE LIST FIRE ALARM DEMCO 2024 (1).pdf' },
+          { name: 'Heat Detector', pdf: 'Brosur dan price list apar/NEW PRICE LIST FIRE ALARM DEMCO 2024 (1).pdf' },
+          { name: 'Bell Alarm', pdf: 'Brosur dan price list apar/NEW PRICE LIST FIRE ALARM DEMCO 2024 (1).pdf' },
+          { name: 'Manual Call Point', pdf: 'Brosur dan price list apar/NEW PRICE LIST FIRE ALARM DEMCO 2024 (1).pdf' },
+          { name: 'Push Button', pdf: 'Brosur dan price list apar/NEW PRICE LIST FIRE ALARM DEMCO 2024 (1).pdf' },
+          { name: 'Horn Strobe', pdf: 'Brosur dan price list apar/NEW PRICE LIST FIRE ALARM DEMCO 2024 (1).pdf' }
+
+        ],
+        spesifikasi: { 'Tegangan Operasional': '24V DC', 'Standar Regulasi': 'NFPA Standard', 'Komponen': 'Control Panel, Smoke Det, Heat Det, Bell' }
+      },
+      'fire-safety-equipment': {
+        title: 'Fire Safety Equipment & PPE',
+        image: 'assets/image/detail/6.png',
+        description: 'STARVVO Indonesia menyediakan rangkaian Fire Safety Equipment berkualitas tinggi yang dirancang untuk mendukung sistem proteksi kebakaran secara menyeluruh dan profesional. Produk dikembangkan dengan standar keamanan modern untuk memenuhi kebutuhan berbagai sektor, mulai dari industri, gedung komersial, perkantoran, fasilitas publik, hingga area residensial. Dengan fokus pada kualitas, keandalan, dan efektivitas operasional, setiap peralatan keselamatan kebakaran STARVVO dirancang untuk memberikan performa optimal dalam kondisi darurat. Didukung oleh material berkualitas, teknologi yang presisi, serta desain yang fungsional, STARVVO menghadirkan solusi fire safety yang mampu meningkatkan standar keamanan dan memberikan perlindungan maksimal terhadap aset, operasional, dan keselamatan pengguna.',
+        variants: [
+          { name: 'Safety Fire Helmet', pdf: 'Brosur dan price list apar/09.-list-katalog-fire-safety-helm.pdf' },
+          { name: 'Baju Pemadam Kebakaran', pdf: 'Brosur dan price list apar/09.-list-katalog-fire-safety-baju-new.pdf' },
+          { name: 'Sepatu Pemadam Kebakaran', pdf: 'Brosur dan price list apar/09.-list-katalog-fire-safety-sepatu.pdf' },
+          { name: 'Sarung Tangan Pemadam Kebakaran', pdf: 'Brosur dan price list apar/09.-list-katalog-fire-safety-sarung-tangan.pdf' },
+          { name: 'Masker Pemadam Kebakaran', pdf: 'Brosur dan price list apar/09.-list-katalog-fire-safety-masker.pdf' },
+          { name: 'Breathing Apparatus (SCBA)', pdf: 'Brosur dan price list apar/07.-list-katalog-fire-hydrant-scba.pdf' },
+        ],
+        spesifikasi: { 'Material Utama': 'Nomex IIIA / Kevlar Tahan Api', 'Sertifikasi Teknis': 'CE / ISO / EN Standar' }
+      },
+      'fire-suppression': {
+        title: 'Fire Suppression System',
+        image: 'assets/image/detail/4.png',
+        description: 'STARVVO menghadirkan Fire Suppression System FM-200 sebagai solusi proteksi kebakaran modern yang dirancang untuk memberikan pemadaman cepat, efektif, dan aman tanpa merusak peralatan sensitif. Sistem ini bekerja menggunakan clean agent FM-200 yang mampu memadamkan api secara otomatis dalam hitungan detik dengan memutus reaksi kimia kebakaran, tanpa meninggalkan residu setelah proses pelepasan. Sangat ideal digunakan pada ruang server, data center, ruang panel listrik, telekomunikasi, laboratorium, hingga fasilitas industri berteknologi tinggi, FM-200 STARVVO memberikan perlindungan maksimal terhadap aset bernilai tinggi dan menjaga kontinuitas operasional perusahaan. Didukung dengan sistem deteksi terintegrasi, desain instalasi presisi, serta standar kualitas proteksi kebakaran profesional, STARVVO FM-200 menjadi pilihan tepat untuk kebutuhan fire suppression system yang efisien, andal, dan berstandar SNI.',
+        variants: [
+          { name: 'FM200 Suppression System', pdf: 'Brosur dan price list apar/price-list-fm200-stv-_-date-sheet.pdf' },
+          
+        ],
+        spesifikasi: { 'Media Pemadam': 'Gas Clean Agent (Non-Konduktif)', 'Waktu Rilis': '< 10 Detik otomatis', 'Sistem Pemicu': 'Dual Detector Interlock' }
+      },
+      'fire-hydrant-system': {
+        title: 'Fire Hydrant System Equipment',
+        image: 'assets/image/detail/2.png',
+        description: 'STARVVO menghadirkan Hydrant System profesional yang dirancang untuk memberikan suplai air bertekanan tinggi secara optimal dalam penanggulangan kebakaran. Sistem ini dikembangkan untuk mendukung kebutuhan proteksi kebakaran pada gedung bertingkat, kawasan industri, perkantoran, pusat komersial, hingga fasilitas publik dengan standar keamanan yang andal dan terintegrasi. Didukung oleh komponen berkualitas tinggi seperti hydrant pillar, hydrant box, hose reel, fire hose, nozzle, valve, hingga sistem pompa kebakaran, STARVVO memastikan distribusi air berjalan stabil dan efektif saat kondisi darurat. Dengan perencanaan sistem yang presisi, instalasi yang sesuai standar, serta performa operasional yang maksimal, Hydrant System STARVVO menjadi solusi proteksi kebakaran yang efisien, profesional, dan siap memberikan perlindungan optimal terhadap aset serta keselamatan lingkungan kerja.',
+        variants: [
+          { name: 'Selang Hydrant', pdf: 'Brosur dan price list apar/07.-list-katalog-fire-hydrant-selang.pdf' },
+          { name: 'Hydrant Pillar', pdf: 'Brosur dan price list apar/07.-list-katalog-fire-hydrant-y-con-pillar-hydrant.pdf' },
+          { name: 'Connector Hydrant', pdf: 'Brosur dan price list apar/07.-list-katalog-fire-hydrant-y-con-pillar-hydrant.pdf' },
+          { name: 'Hydrant Valve', pdf: 'Brosur dan price list apar/07.-list-katalog-fire-hydrant-y-con-pillar-hydrant.pdf' },
+          { name: 'Box Hydrant', pdf: 'Brosur dan price list apar/07.-list-katalog-fire-hydrant-box-new.pdf' },
+          { name: 'Hydrant Accessories', pdf: 'Brosur dan price list apar/07.-list-katalog-fire-hydrant-y-con-pillar-hydrant.pdf' },
+          { name: 'Nozzle Hydrant', pdf: 'Brosur dan price list apar/07.-list-katalog-fire-hydrant-nozzle.pdf' },
+          { name: 'Pompa', pdf: 'Brosur dan price list apar/07. List Katalog Fire Hydrant (Pompa).pdf' }
+        ],
+        spesifikasi: { 'Tekanan Kerja': '10 - 16 Bar', 'Material Unit': 'Kuningan / Baja / Canvas Premium', 'Standar Koneksi': 'Machino / Shore' }
+      },
+      'fire-trap-system': {
+        title: 'Fire Trap System',
+        image: 'assets/image/card/IMG-20260520-WA0014.jpg',
+        description: 'STARVVO Indonesia menghadirkan Fire Trap System berkualitas profesional yang dirancang untuk membantu mengendalikan dan membatasi penyebaran api, asap, serta panas pada area bangunan saat terjadi kebakaran. Sistem ini menjadi bagian penting dalam strategi passive fire protection untuk menjaga keamanan jalur evakuasi, melindungi struktur bangunan, dan meminimalkan potensi kerusakan yang lebih luas. Dengan material tahan api berkualitas tinggi dan desain yang memenuhi standar keselamatan kebakaran modern, Fire Trap System STARVVO mampu memberikan perlindungan optimal pada berbagai kebutuhan industri, gedung komersial, perkantoran, hingga fasilitas publik. Didukung oleh instalasi yang presisi dan performa yang andal, STARVVO menghadirkan solusi fire protection yang efektif, profesional, dan terpercaya untuk meningkatkan standar keselamatan bangunan secara menyeluruh.',
+        variants: [
+          { name: 'Electrical Panel FireTRAP System', pdf: 'Brosur dan price list apar/Pricelist FIRE TRAP 2022.pdf' },
+          { name: 'Server Rack FireTRAP System', pdf: 'Brosur dan price list apar/Pricelist FIRE TRAP 2022.pdf' },
+          { name: 'Kitchen FireTRAP System', pdf: 'Brosur dan price list apar/Pricelist FIRE TRAP 2022.pdf' },
+          { name: 'Vehicle FireTRAP System', pdf: 'Brosur dan price list apar/Pricelist FIRE TRAP 2022.pdf' }
+        ],
+        spesifikasi: { 'Media Khusus': 'Liquid Wet Chemical (Class K)', 'Metode': 'Pneumatic Tubing Detector', 'Instalasi': 'Dapur Komersial / Industrial' }
+      },
+      'refill-extinguisher': {
+        title: 'Layanan Refill Extinguisher (Isi Ulang APAR)',
+        image: 'assets/image/detail/7.png',
+        description: 'STARVVO Indonesia menyediakan layanan Refill Fire Extinguisher profesional untuk memastikan alat pemadam api ringan (APAR) tetap dalam kondisi optimal, siap digunakan, dan sesuai dengan standar keselamatan kebakaran. Proses pengisian ulang dilakukan dengan prosedur yang terukur menggunakan media pemadam berkualitas tinggi, sehingga performa APAR tetap maksimal dalam menghadapi kondisi darurat. Didukung oleh tenaga teknis berpengalaman dan proses pengecekan menyeluruh, layanan refill STARVVO mencakup pemeriksaan tekanan, kondisi tabung, valve, selang, hingga kualitas media pemadam untuk menjaga keandalan fungsi alat. Tersedia untuk berbagai jenis APAR seperti Dry Chemical Powder, CO₂, Foam, dan Clean Agent, layanan ini menjadi solusi tepat bagi perusahaan, industri, perkantoran, maupun fasilitas umum yang mengutamakan keamanan dan kepatuhan terhadap sistem proteksi kebakaran.',
+        variants: [
+          { name: 'Refill Powder ', pdf: 'Brosur dan price list apar/04.-price-list-refill-2021.pdf' },
+          { name: 'Refill Foam AFFF ', pdf: 'Brosur dan price list apar/04.-price-list-refill-2021.pdf' },
+          { name: 'Refill Gas CO2 ', pdf: 'Brosur dan price list apar/04.-price-list-refill-2021.pdf' }
+        ],
+        spesifikasi: { 'Waktu Pengerjaan': 'Cepat (Dapat Ditunggu)', 'Masa Kedaluwarsa': '1-2 Tahun (Sesuai Jenis)', 'Sertifikat': 'Stiker masa berlaku resmi' }
+      },
+      'hydrotest': {
+        title: 'Hydrostatic Test Tabung APAR',
+        image: 'assets/image/card/8.png',
+        description: 'STARVVO Indonesia menyediakan layanan Hydrotest APAR profesional untuk memastikan kondisi tabung alat pemadam api tetap aman, kuat, dan layak digunakan sesuai standar keselamatan kebakaran. Proses hydrostatic test dilakukan dengan metode pengujian tekanan tinggi guna memeriksa kekuatan struktur tabung terhadap potensi kebocoran, korosi, maupun kerusakan yang dapat memengaruhi performa alat saat digunakan dalam kondisi darurat. Didukung oleh teknisi berpengalaman dan peralatan pengujian yang presisi, setiap proses hydrotest dilakukan secara menyeluruh untuk menjaga kualitas, keamanan, dan keandalan APAR. Layanan ini tersedia untuk berbagai jenis alat pemadam seperti Dry Chemical Powder, CO₂, Foam, dan Clean Agent, sehingga membantu memastikan seluruh sistem proteksi kebakaran tetap memenuhi standar operasional dan siap digunakan kapan saja diperlukan.',
+        variants: [
+          { name: 'Pengujian Tekanan Struktur Tabung', pdf: 'Brosur dan price list apar/04.-price-list-hydrotest.pdf' }
+        ],
+        spesifikasi: { 'Tekanan Uji': 'Hingga 1.5 - 2x Tekanan Kerja', 'Rekomendasi': 'Setiap 5 Tahun Sekali', 'Regulasi': 'Standar Mutu Disnaker' }
+      }
+    };
+
+    // 3. Proses Render Data ke Halaman
+    const produk = data[namaProduk];
+    
+    if (produk) {
+      document.title = `${produk.title} - STARVVO Solution`;
+      document.getElementById('judul').textContent = produk.title;
+      document.getElementById('deskripsi').textContent = produk.description;
+      
+      const imgEl = document.getElementById('gambar');
+      imgEl.src = produk.image;
+      imgEl.alt = produk.title;
+
+      // Render Pilihan Varian Berupa Link PDF Terbuka di Tab Baru
+      const varianBox = document.getElementById('varian-box');
+      varianBox.innerHTML = '';
+      produk.variants.forEach(item => {
+        const chip = document.createElement('a');
+        chip.className = 'variant-chip';
+        chip.textContent = item.name;
+        chip.href = item.pdf;
+        chip.target = '_blank'; // Membuka PDF di halaman/tab baru
+        chip.title = `Klik untuk mengunduh/melihat brosur ${item.name}`;
+        varianBox.appendChild(chip);
+      });
+
+      // Render Tabel Spesifikasi Teknis
+      const tableBody = document.getElementById('spesifikasi-table');
+      tableBody.innerHTML = '';
+      for (const [key, value] of Object.entries(produk.spesifikasi)) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="specs-key">${key}</td>
+          <td class="specs-value">${value}</td>
+        `;
+        tableBody.appendChild(row);
+      }
+
+      // Integrasi Pesan WhatsApp Khusus
+      const waLink = document.getElementById('wa-link');
+      const textWA = encodeURIComponent(`Halo Tim Marketing STARVVO, saya ingin bertanya mengenai produk: *${produk.title}*. Tolong kirimkan info harga dan penawaran terbarunya.`);
+      waLink.href = `https://wa.me/6281319131032?text=${textWA}`;
+
+    } else {
+      // Jika produk tidak valid / tidak ditemukan
+      const mainContent = document.getElementById('main-content');
+      mainContent.innerHTML = `
+        <div class="not-found-box">
+          <h1>Produk Tidak Ditemukan</h1>
+          <p>Maaf, informasi detail mengenai kategori produk yang Anda cari tidak tersedia atau tautan salah.</p>
+          <br>
+          <a href="index2.html">← Kembali ke Halaman Utama</a>
+        </div>
+      `;
+    }
+  </script>
+  <!-- OFFICE INFO -->
+<section class="office-section" id="office">
+
+  <div class="section-title">
+    <span>OUR OFFICE</span>
+    <h2>Show Room, Factory & Workshop</h2>
+
+    <p>
+      Kunjungi showroom, workshop, dan kantor operasional STARVVO
+      untuk konsultasi sistem proteksi kebakaran profesional.
+    </p>
+  </div>
+
+  <div class="office-container">
+
+    <!-- SHOWROOM -->
+    <div class="office-card">
+      <h3>Show Room & Marketing</h3>
+      <span class="office-city">Jakarta</span>
+
+      <p>
+        Komp. Perkantoran Mutiara Taman Palem<br>
+        Blok A15 No. 27-28<br>
+        Cengkareng, Jakarta Barat 11730
+      </p>
+
+      <div class="office-info">
+        <p><strong>Email:</strong> sales@gmpro.id</p>
+
+        <p><strong>Whatsapp:</strong> 081311828873</p>
+
+        <p>
+          <strong>Telephone:</strong><br>
+          021-2230-2338<br>
+          021-5433-1863<br>
+          021-2252-3267
+        </p>
+      </div>
+    </div>
+
+    <!-- FACTORY -->
+    <div class="office-card">
+      <h3>Factory & Workshop</h3>
+      <span class="office-city">Tangerang</span>
+
+      <p>
+        Jl. AMD Manunggal No. 99,<br>
+        Cadas Lebak Wangi,<br>
+        Sepatan, Tangerang 15520
+      </p>
+
+      <div class="office-info">
+        <p><strong>Email:</strong> sales@gmpro.id</p>
+
+        <p>
+          <strong>Telephone:</strong><br>
+          021-5937-1000
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SISTER SITE -->
+  <div class="sister-site">
+
+    <h3>Our Sister Site</h3>
+
+    <div class="site-links">
+
+      <a href="https://agenalatpemadamapi.com" target="_blank">
+        agenalatpemadamapi.com
+      </a>
+
+      <a href="https://alatpemadamapi.co.id" target="_blank">
+        alatpemadamapi.co.id
+      </a>
+
+      <a href="https://balifire.id" target="_blank">
+        balifire.id
+      </a>
+
+      <a href="https://fm200.co.id" target="_blank">
+        fm200.co.id
+      </a>
+
+      <a href="https://instalasifire.com" target="_blank">
+        instalasifire.com
+      </a>
+
+      <a href="https://instalasihydrant.com" target="_blank">
+        instalasihydrant.com
+      </a>
+
+      <a href="https://starvvo.com/en/" target="_blank">
+        starvvo.com/en
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- MAPS -->
+  <div class="maps-section">
+
+    <h3>Our Maps Address</h3>
+
+    <div class="maps-grid">
+
+<iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7933.88265451063!2d106.732341!3d-6.138585!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d56aaaaaaab%3A0x34411c9603cb754d!2sAlat%20Pemadam%20Api%20Ringan%20-%20PT.%20Global%20Mitra%20Proteksindo!5e0!3m2!1sen!2sus!4v1779949270741!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+      </iframe>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Floating WhatsApp -->
+<a
+  href="https://wa.me/6281319131032?text=Halo%20STARVVO,%20saya%20ingin%20berkonsultasi%20mengenai%20produk%20fire%20protection."
+  class="floating-wa"
+  target="_blank"
+>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/500px-WhatsApp_icon.png" alt="WhatsApp">
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>

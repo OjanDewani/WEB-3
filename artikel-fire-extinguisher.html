@@ -1,0 +1,1132 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Fire Extinguisher - STARVVO</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+/* OFFICE SECTION */
+.office-section {
+  padding: 100px 8%;
+  background: #f8f9fb;
+}
+
+.office-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.office-card {
+  background: #fff;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: .3s;
+}
+
+.office-card:hover {
+  transform: translateY(-5px);
+}
+
+.office-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.office-city {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  background: #e60012;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.office-card p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.office-info strong {
+  color: #111;
+}
+
+/* SISTER SITE */
+.sister-site {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.sister-site h3 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.site-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.site-links a {
+  padding: 14px 24px;
+  background: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: .3s;
+}
+
+.site-links a:hover {
+  background: #e60012;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* MAPS */
+.maps-section {
+  margin-top: 80px;
+}
+
+.maps-section h3 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.maps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.maps-grid iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#f5f7fb;
+      color:#1a1a1a;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    /* HEADER */
+
+    header{
+      width:100%;
+      padding:22px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      z-index:999;
+      background:rgba(0,0,0,.8);
+      backdrop-filter:blur(10px);
+    }
+
+    .logo{
+      color:red;
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:2px;
+    }
+
+    nav{
+      display:flex;
+      gap:35px;
+    }
+
+    nav a{
+      color:#fff;
+      font-size:15px;
+      transition:.3s;
+    }
+
+    nav a:hover{
+      color:#ff3b3b;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
+      url('https://i.pinimg.com/736x/50/14/c3/5014c3b9995919471b284f939880d60d.jpg');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      padding:0 8%;
+    }
+
+    .hero-content{
+      max-width:850px;
+      color:#fff;
+    }
+
+    .hero-badge{
+      display:inline-block;
+      background:#ff3b3b;
+      padding:10px 22px;
+      border-radius:50px;
+      margin-bottom:28px;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .hero h1{
+      font-size:68px;
+      line-height:1.1;
+      margin-bottom:25px;
+      font-weight:800;
+    }
+
+    .hero p{
+      font-size:18px;
+      line-height:1.9;
+      color:#ddd;
+      margin-bottom:40px;
+    }
+
+    .hero-btn{
+      display:inline-block;
+      padding:16px 34px;
+      background:#ff3b3b;
+      color:#fff;
+      border-radius:60px;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .hero-btn:hover{
+      background:#d92a2a;
+      transform:translateY(-3px);
+    }
+
+    /* SECTION */
+
+    .section{
+      padding:110px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title span{
+      color:#ff3b3b;
+      font-weight:600;
+      letter-spacing:1px;
+    }
+
+    .section-title h2{
+      font-size:48px;
+      margin-top:15px;
+      margin-bottom:20px;
+    }
+
+    .section-title p{
+      max-width:850px;
+      margin:auto;
+      color:#666;
+      line-height:1.9;
+    }
+
+    /* INTRO */
+
+    .intro{
+      max-width:1100px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .intro p{
+      font-size:18px;
+      line-height:2;
+      color:#555;
+    }
+
+    /* PRODUCT CARD */
+
+    .product-card{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:center;
+      margin-bottom:120px;
+    }
+
+    .product-card.reverse{
+      direction:rtl;
+    }
+
+    .product-card.reverse .product-content{
+      direction:ltr;
+    }
+
+    .product-image img{
+      width:100%;
+      border-radius:28px;
+      background:#fff;
+      padding:14px;
+      object-fit:contain;
+      box-shadow:0 20px 60px rgba(0,0,0,.08);
+      transition:.4s;
+    }
+
+    .product-image img:hover{
+      transform:translateY(-8px);
+    }
+
+    .product-content span{
+      color:#ff3b3b;
+      font-weight:600;
+      letter-spacing:1px;
+    }
+
+    .product-content h2{
+      font-size:42px;
+      margin:18px 0 25px;
+      line-height:1.2;
+    }
+
+    .product-content p{
+      line-height:2;
+      color:#555;
+      margin-bottom:20px;
+    }
+
+    .feature-list{
+      margin-top:30px;
+      display:grid;
+      gap:15px;
+    }
+
+    .feature-item{
+      background:#fff;
+      padding:16px 22px;
+      border-radius:14px;
+      box-shadow:0 5px 20px rgba(0,0,0,.05);
+      color:#444;
+      font-weight:500;
+    }
+
+    /* ADVANTAGES */
+
+    .advantages{
+      background:#111;
+      color:#fff;
+      border-radius:40px;
+      padding:80px;
+      margin-top:40px;
+    }
+
+    .advantages-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:25px;
+      margin-top:50px;
+    }
+
+    .adv-card{
+      background:rgba(255,255,255,.06);
+      padding:35px;
+      border-radius:24px;
+      transition:.3s;
+    }
+
+    .adv-card:hover{
+      transform:translateY(-5px);
+      background:rgba(255,255,255,.09);
+    }
+
+    .adv-card h3{
+      margin-bottom:15px;
+      font-size:22px;
+    }
+
+    .adv-card p{
+      color:#ccc;
+      line-height:1.8;
+    }
+
+    /* CTA */
+
+    .cta{
+      margin-top:120px;
+      background:
+      linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+      url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      padding:100px 8%;
+      border-radius:40px;
+      text-align:center;
+      color:#fff;
+    }
+
+    .cta h2{
+      font-size:52px;
+      margin-bottom:25px;
+    }
+
+    .cta p{
+      max-width:850px;
+      margin:auto;
+      line-height:2;
+      color:#ddd;
+      margin-bottom:40px;
+    }
+
+    .cta-btn{
+      display:inline-block;
+      padding:18px 38px;
+      border-radius:60px;
+      background:#ff3b3b;
+      color:#fff;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .cta-btn:hover{
+      background:#d92a2a;
+    }
+
+    footer{
+      padding:40px;
+      text-align:center;
+      color:#777;
+      font-size:15px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:991px){
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .product-card{
+        grid-template-columns:1fr;
+      }
+
+      .product-card.reverse{
+        direction:ltr;
+      }
+
+      .section-title h2{
+        font-size:38px;
+      }
+
+      .cta h2{
+        font-size:38px;
+      }
+
+      nav{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo">
+      STARVVO
+    </div>
+
+    <nav>
+  <a href="index2.html">Home</a>
+      <a href="index2.html#products">Products</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="artikel.html">Artikel</a>
+      <a href="index2.html#Complience">Complience</a>
+      <a href="portofolio1.html">Portfolio</a>
+        <a href="index2.html#Kontak">Kontak</a>
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <span class="hero-badge">
+        FIRE PROTECTION EQUIPMENT
+      </span>
+
+      <h1>
+        Fire Extinguisher
+      </h1>
+
+      <p>
+        STARVVO menghadirkan berbagai jenis APAR profesional untuk perlindungan
+        kebakaran pada area industrial, commercial building,
+        perkantoran, rumah sakit, hotel, dan fasilitas publik.
+      </p>
+
+      <a href="#products" class="hero-btn">
+        Explore Product
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- INTRO -->
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <span>ABOUT PRODUCT</span>
+
+      <h2>
+        Jenis APAR & Fungsinya
+      </h2>
+
+      <p>
+        Fire extinguisher atau APAR merupakan alat pemadam api ringan
+        yang digunakan untuk memadamkan kebakaran pada tahap awal
+        sebelum api berkembang lebih besar.
+      </p>
+
+    </div>
+
+    <div class="intro">
+
+      <p>
+        STARVVO menyediakan berbagai jenis APAR profesional dengan media
+        pemadam yang berbeda sesuai dengan klasifikasi bahaya kebakaran.
+        Setiap jenis APAR memiliki fungsi khusus untuk memberikan perlindungan
+        maksimal pada berbagai area dan kebutuhan operasional.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section class="section" id="products">
+
+    <!-- DCP -->
+
+    <div class="product-card">
+
+      <div class="product-image">
+
+        <img src="https://balifire.id/images/Starvvo%209%20kg.png" alt="Dry Chemical Powder">
+
+      </div>
+
+      <div class="product-content">
+
+        <span>01</span>
+
+        <h2>
+          Dry Chemical Powder
+        </h2>
+
+        <p>
+          APAR Dry Chemical Powder merupakan jenis alat pemadam api
+          yang paling umum digunakan untuk berbagai klasifikasi kebakaran.
+        </p>
+
+        <p>
+          Jenis APAR ini efektif digunakan untuk kebakaran kelas A,
+          B, dan C seperti kebakaran benda padat, cairan mudah terbakar,
+          maupun kebakaran akibat listrik.
+        </p>
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            ✓ Multi Purpose Fire Extinguisher
+          </div>
+
+          <div class="feature-item">
+            ✓ Cocok Untuk Area Industrial
+          </div>
+
+          <div class="feature-item">
+            ✓ Efektif Untuk Kebakaran Listrik
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FOAM -->
+
+    <div class="product-card reverse">
+
+      <div class="product-image">
+
+        <img src="https://starvvo.com/images/2022/11/02/starvvo-foam-12-ltr.png" alt="Foam AFFF">
+
+      </div>
+
+      <div class="product-content">
+
+        <span>02</span>
+
+        <h2>
+          Foam AFFF
+        </h2>
+
+        <p>
+          APAR Foam AFFF digunakan untuk memadamkan kebakaran cairan
+          mudah terbakar seperti bensin, solar, oli, dan bahan kimia tertentu.
+        </p>
+
+        <p>
+          Foam bekerja dengan membentuk lapisan busa pada permukaan cairan
+          sehingga mampu menghentikan suplai oksigen dan mencegah api menyala kembali.
+        </p>
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            ✓ Liquid Fire Protection
+          </div>
+
+          <div class="feature-item">
+            ✓ Mencegah Api Menyala Kembali
+          </div>
+
+          <div class="feature-item">
+            ✓ Cocok Untuk Area Fuel Storage
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CO2 -->
+
+    <div class="product-card">
+
+      <div class="product-image">
+
+        <img src="https://starvvo.com/images/virtuemart/product/co2%2023%20kg.png" alt="CO2 Fire Extinguisher">
+
+      </div>
+
+      <div class="product-content">
+
+        <span>03</span>
+
+        <h2>
+          CO2 (Carbon Dioxide)
+        </h2>
+
+        <p>
+          APAR CO2 digunakan untuk memadamkan kebakaran akibat listrik
+          dan perangkat elektronik tanpa meninggalkan residu.
+        </p>
+
+        <p>
+          Jenis APAR ini sangat cocok digunakan pada ruang server,
+          panel listrik, laboratorium, dan area dengan perangkat sensitif.
+        </p>
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            ✓ Clean Agent Fire Extinguisher
+          </div>
+
+          <div class="feature-item">
+            ✓ Tidak Meninggalkan Residu
+          </div>
+
+          <div class="feature-item">
+            ✓ Aman Untuk Perangkat Elektronik
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AF11 -->
+
+    <div class="product-card reverse">
+
+      <div class="product-image">
+
+        <img src="https://starvvo.com/images/com_droppics/22/af11.jpg" alt="AF11 Clean Agent">
+
+      </div>
+
+      <div class="product-content">
+
+        <span>04</span>
+
+        <h2>
+          AF-11 Clean Agent
+        </h2>
+
+        <p>
+          AF-11 Clean Agent merupakan media pemadam modern
+          yang aman digunakan untuk area elektronik dan perangkat sensitif.
+        </p>
+
+        <p>
+          Media ini bekerja cepat tanpa merusak perangkat dan tidak
+          meninggalkan residu setelah proses pemadaman.
+        </p>
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            ✓ Modern Clean Agent
+          </div>
+
+          <div class="feature-item">
+            ✓ Fast Fire Suppression
+          </div>
+
+          <div class="feature-item">
+            ✓ Aman Untuk Data Center
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AF36 -->
+
+    <div class="product-card">
+
+      <div class="product-image">
+
+        <img src="https://starvvo.com/images/2025/12/30/af-36-2-kg.jpg" alt="AF36 Clean Agent">
+
+      </div>
+
+      <div class="product-content">
+
+        <span>05</span>
+
+        <h2>
+          AF-36 Clean Agent
+        </h2>
+
+        <p>
+          AF-36 Clean Agent merupakan solusi fire suppression modern
+          dengan kemampuan pemadaman cepat untuk berbagai area berisiko tinggi.
+        </p>
+
+        <p>
+          Sistem ini cocok digunakan pada ruang server,
+          control room, ruang listrik, dan fasilitas industrial modern.
+        </p>
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            ✓ Professional Fire Protection
+          </div>
+
+          <div class="feature-item">
+            ✓ Industrial Fire Safety
+          </div>
+
+          <div class="feature-item">
+            ✓ High Performance Clean Agent
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+<!-- F500 -->
+
+<div class="product-card">
+
+  <div class="product-image">
+
+    <img src="https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/c1c44ae009ee4f2886874d6b48512903~tplv-aphluv4xwc-white-pad-v1:250:250.jpeg" alt="F500 Encapsulator Agent">
+
+  </div>
+
+  <div class="product-content">
+
+    <span>06</span>
+
+    <h2>
+      F-500 Encapsulator Agent
+    </h2>
+
+    <p>
+      F-500 Encapsulator Agent merupakan teknologi pemadam kebakaran
+      modern yang menggunakan mekanisme encapsulation untuk membantu
+      mengendalikan panas, mengisolasi bahan bakar, dan mempercepat
+      proses pemadaman api secara efektif.
+    </p>
+
+    <p>
+      Media pemadam ini sangat efektif digunakan pada kebakaran
+      kelas A, kelas B, baterai lithium-ion, kendaraan listrik,
+      area industri, gudang logistik, fasilitas manufaktur,
+      serta lingkungan dengan risiko kebakaran berenergi tinggi.
+    </p>
+
+    <p>
+      Dibandingkan media pemadam konvensional, F-500 mampu
+      menurunkan suhu dengan cepat, mengurangi kemungkinan
+      re-ignition (api menyala kembali), serta membantu
+      meningkatkan keselamatan personel dan aset perusahaan.
+    </p>
+
+    <div class="feature-list">
+
+      <div class="feature-item">
+        ✓ Advanced Encapsulator Technology
+      </div>
+
+      <div class="feature-item">
+        ✓ Effective For Lithium Battery Fires
+      </div>
+
+      <div class="feature-item">
+        ✓ Rapid Cooling Performance
+      </div>
+
+      <div class="feature-item">
+        ✓ Reduces Re-Ignition Risk
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+    <!-- ADVANTAGES -->
+
+    <div class="advantages">
+
+      <div class="section-title">
+
+        <span>WHY STARVVO</span>
+
+        <h2>
+          Keunggulan Produk APAR STARVVO
+        </h2>
+
+      </div>
+
+      <div class="advantages-grid">
+
+        <div class="adv-card">
+
+          <h3>
+            Professional Quality
+          </h3>
+
+          <p>
+            Menggunakan material dan media pemadam berkualitas
+            untuk perlindungan maksimal.
+          </p>
+
+        </div>
+
+        <div class="adv-card">
+
+          <h3>
+            Complete Product
+          </h3>
+
+          <p>
+            Tersedia berbagai jenis APAR sesuai kebutuhan
+            industrial dan commercial building.
+          </p>
+
+        </div>
+
+        <div class="adv-card">
+
+          <h3>
+            Safety Standard
+          </h3>
+
+          <p>
+            Produk memenuhi standar keselamatan
+            dan proteksi kebakaran modern.
+          </p>
+
+        </div>
+
+        <div class="adv-card">
+
+          <h3>
+            Maintenance Support
+          </h3>
+
+          <p>
+            Didukung layanan refill APAR,
+            hydrotest, dan maintenance profesional.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+
+    <div class="cta">
+
+      <h2>
+        Konsultasikan Kebutuhan APAR Anda
+      </h2>
+
+      <p>
+        STARVVO menyediakan solusi fire extinguisher profesional
+        untuk industrial, commercial building,
+        rumah sakit, hotel, dan fasilitas publik.
+      </p>
+
+      <a href="https://wa.me/6281319131032?text=Halo%20STARVVO,%20saya%20ingin%20berkonsultasi%20mengenai%20produk%20fire%20protection." 
+      class="cta-btn">
+        Contact STARVVO
+      </a>
+
+    </div>
+
+  </section>
+
+<!-- OFFICE INFO -->
+<section class="office-section" id="office">
+
+  <div class="section-title">
+    <span>OUR OFFICE</span>
+    <h2>Show Room, Factory & Workshop</h2>
+
+    <p>
+      Kunjungi showroom, workshop, dan kantor operasional STARVVO
+      untuk konsultasi sistem proteksi kebakaran profesional.
+    </p>
+  </div>
+
+  <div class="office-container">
+
+    <!-- SHOWROOM -->
+    <div class="office-card">
+      <h3>Show Room & Marketing</h3>
+      <span class="office-city">Jakarta</span>
+
+      <p>
+        Komp. Perkantoran Mutiara Taman Palem<br>
+        Blok A15 No. 27-28<br>
+        Cengkareng, Jakarta Barat 11730
+      </p>
+
+      <div class="office-info">
+        <p><strong>Email:</strong> sales@gmpro.id</p>
+
+        <p><strong>Whatsapp:</strong> 081311828873</p>
+
+        <p>
+          <strong>Telephone:</strong><br>
+          021-2230-2338<br>
+          021-5433-1863<br>
+          021-2252-3267
+        </p>
+      </div>
+    </div>
+
+    <!-- FACTORY -->
+    <div class="office-card">
+      <h3>Factory & Workshop</h3>
+      <span class="office-city">Tangerang</span>
+
+      <p>
+        Jl. AMD Manunggal No. 99,<br>
+        Cadas Lebak Wangi,<br>
+        Sepatan, Tangerang 15520
+      </p>
+
+      <div class="office-info">
+        <p><strong>Email:</strong> sales@gmpro.id</p>
+
+        <p>
+          <strong>Telephone:</strong><br>
+          021-5937-1000
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SISTER SITE -->
+  <div class="sister-site">
+
+    <h3>Our Sister Site</h3>
+
+    <div class="site-links">
+
+      <a href="https://agenalatpemadamapi.com" target="_blank">
+        agenalatpemadamapi.com
+      </a>
+
+      <a href="https://alatpemadamapi.co.id" target="_blank">
+        alatpemadamapi.co.id
+      </a>
+
+      <a href="https://balifire.id" target="_blank">
+        balifire.id
+      </a>
+
+      <a href="https://fm200.co.id" target="_blank">
+        fm200.co.id
+      </a>
+
+      <a href="https://instalasifire.com" target="_blank">
+        instalasifire.com
+      </a>
+
+      <a href="https://instalasihydrant.com" target="_blank">
+        instalasihydrant.com
+      </a>
+
+      <a href="https://starvvo.com/en/" target="_blank">
+        starvvo.com/en
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- MAPS -->
+  <div class="maps-section">
+
+    <h3>Our Maps Address</h3>
+
+    <div class="maps-grid">
+
+<iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7933.88265451063!2d106.732341!3d-6.138585!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d56aaaaaaab%3A0x34411c9603cb754d!2sAlat%20Pemadam%20Api%20Ringan%20-%20PT.%20Global%20Mitra%20Proteksindo!5e0!3m2!1sen!2sus!4v1779949270741!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+      </iframe>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 STARVVO - PT Global Mitra Proteksindo
+  </footer>
+
+<!-- Floating WhatsApp -->
+<a
+  href="https://wa.me/6281319131032?text=Halo%20STARVVO,%20saya%20ingin%20berkonsultasi%20mengenai%20produk%20fire%20protection."
+  class="floating-wa"
+  target="_blank"
+>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/500px-WhatsApp_icon.png" alt="WhatsApp">
+</a>
+
+<script src="script.js"></script>
+
+<style>
+  /* FLOATING WHATSAPP */
+.floating-wa{
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  z-index: 9999;
+  transition: all .3s ease;
+  animation: waPulse 2s infinite;
+}
+
+.floating-wa img{
+  width: 35px;
+  height: 35px;
+}
+
+.floating-wa:hover{
+  transform: translateY(-5px) scale(1.08);
+}
+
+@keyframes waPulse{
+  0%{
+    box-shadow: 0 0 0 0 rgba(37,211,102,.5);
+  }
+  70%{
+    box-shadow: 0 0 0 20px rgba(37,211,102,0);
+  }
+  100%{
+    box-shadow: 0 0 0 0 rgba(37,211,102,0);
+  }
+}
+</style>
+
+</body>
+</html>

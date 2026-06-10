@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fire Safety Equipment - STARVVO</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#1a1a1a;
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    width:100%;
+    padding:22px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(12px);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:2px;
+    color:#e60012;
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    color:#fff;
+    font-size:15px;
+    font-weight:500;
+    transition:.3s;
+    position:relative;
+}
+
+nav a:hover{
+    color:#ff3b3b;
+}
+
+nav a.active{
+    color:#ff3b3b;
+}
+
+nav a.active::after{
+    content:'';
+    width:100%;
+    height:2px;
+    background:#ff3b3b;
+    position:absolute;
+    left:0;
+    bottom:-8px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:0 8%;
+    background:
+    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
+    url('https://i.pinimg.com/736x/ef/87/cb/ef87cbe624fbce849bad03a4f7f848f8.jpg');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+.hero-content{
+    max-width:850px;
+    color:#fff;
+}
+
+.hero-badge{
+    display:inline-block;
+    background:#e60012;
+    padding:10px 24px;
+    border-radius:50px;
+    margin-bottom:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.hero h1{
+    font-size:72px;
+    line-height:1.1;
+    margin-bottom:25px;
+    font-weight:800;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:2;
+    color:#ddd;
+    margin-bottom:40px;
+}
+
+.hero-btn{
+    display:inline-block;
+    padding:18px 38px;
+    background:#e60012;
+    color:#fff;
+    border-radius:60px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    background:#c90010;
+    transform:translateY(-3px);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+    padding:110px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title span{
+    color:#e60012;
+    font-weight:600;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:48px;
+    margin-top:15px;
+    margin-bottom:20px;
+}
+
+.section-title p{
+    max-width:900px;
+    margin:auto;
+    color:#666;
+    line-height:2;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+}
+
+.intro p{
+    font-size:18px;
+    color:#555;
+    line-height:2;
+}
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.product-card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+    margin-bottom:120px;
+}
+
+.product-card.reverse{
+    direction:rtl;
+}
+
+.product-card.reverse .product-content{
+    direction:ltr;
+}
+
+.product-image{
+    position:relative;
+}
+
+.product-image img{
+    width:100%;
+    background:#fff;
+    padding:18px;
+    border-radius:28px;
+    object-fit:contain;
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+    transition:.4s;
+}
+
+.product-image img:hover{
+    transform:translateY(-8px);
+}
+
+.product-content span{
+    color:#e60012;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.product-content h2{
+    font-size:42px;
+    margin:18px 0 25px;
+    line-height:1.2;
+}
+
+.product-content p{
+    color:#555;
+    line-height:2;
+    margin-bottom:20px;
+    text-align:justify;
+}
+
+/* =========================
+   FEATURE LIST
+========================= */
+
+.feature-list{
+    display:grid;
+    gap:15px;
+    margin-top:30px;
+}
+
+.feature-item{
+    background:#fff;
+    padding:16px 22px;
+    border-radius:14px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+    color:#444;
+    font-weight:500;
+    transition:.3s;
+}
+
+.feature-item:hover{
+    transform:translateX(5px);
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+/* =========================
+   ADVANTAGES
+========================= */
+
+.advantages{
+    background:#111;
+    color:#fff;
+    border-radius:40px;
+    padding:80px;
+    margin-top:50px;
+}
+
+.advantages .section-title h2{
+    color:#fff;
+}
+
+.advantages-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:50px;
+}
+
+.adv-card{
+    background:rgba(255,255,255,.06);
+    padding:35px;
+    border-radius:24px;
+    transition:.3s;
+}
+
+.adv-card:hover{
+    transform:translateY(-6px);
+    background:rgba(255,255,255,.1);
+}
+
+.adv-card h3{
+    margin-bottom:15px;
+    font-size:22px;
+}
+
+.adv-card p{
+    color:#ccc;
+    line-height:1.8;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url('images/firefighter-bg.jpg');
+    background-size:cover;
+    background-position:center;
+    padding:100px 8%;
+    border-radius:40px;
+    text-align:center;
+    color:#fff;
+}
+
+.cta h2{
+    font-size:52px;
+    margin-bottom:25px;
+}
+
+.cta p{
+    max-width:850px;
+    margin:auto;
+    color:#ddd;
+    line-height:2;
+    margin-bottom:40px;
+}
+
+.cta-btn{
+    display:inline-block;
+    padding:18px 40px;
+    border-radius:60px;
+    background:#e60012;
+    color:#fff;
+    font-weight:600;
+    transition:.3s;
+}
+
+.cta-btn:hover{
+    background:#c90010;
+    transform:translateY(-3px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:40px;
+    text-align:center;
+    color:#777;
+    font-size:15px;
+    background:#fff;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f1f1f1;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#e60012;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#c90010;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+.product-card{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+
+@media(max-width:991px){
+
+    nav{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .section-title h2{
+        font-size:38px;
+    }
+
+    .product-card{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .product-card.reverse{
+        direction:ltr;
+    }
+
+    .product-content h2{
+        font-size:34px;
+    }
+
+    .advantages{
+        padding:50px 30px;
+    }
+
+    .cta h2{
+        font-size:40px;
+    }
+
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media(max-width:576px){
+
+    .hero{
+        text-align:center;
+        padding:0 25px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .section{
+        padding:80px 25px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .product-content h2{
+        font-size:28px;
+    }
+
+    .advantages{
+        border-radius:25px;
+    }
+
+    .cta{
+        border-radius:25px;
+        padding:70px 25px;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="logo">STARVVO</div>
+
+  <nav>
+<nav>
+    <a href="index2.html">Home</a>
+    <a href="index2.html#products">Products</a>
+    <a href="about.html">About Us</a>
+    <a href="artikel.html" class="active">Artikel</a>
+    <a href="index2.html#Complience">Compliance</a>
+    <a href="portofolio1.html">Portfolio</a>
+    <a href="index2.html#Kontak">Kontak</a>
+</nav>
+  </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <span class="hero-badge">
+      FIRE SAFETY EQUIPMENT
+    </span>
+
+    <h1>
+      Fire Safety Equipment
+    </h1>
+
+    <p>
+      Perlengkapan keselamatan kebakaran profesional untuk mendukung
+      operasi pemadaman, evakuasi, perlindungan personel, serta
+      meningkatkan keselamatan pada lingkungan industri, gedung
+      komersial, fasilitas publik, dan area berisiko tinggi.
+    </p>
+
+    <a href="#products" class="hero-btn">
+      Explore Product
+    </a>
+
+  </div>
+
+</section>
+
+<!-- INTRO -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>ABOUT PRODUCT</span>
+
+<h2>
+Fire Safety Equipment Profesional
+</h2>
+
+<p>
+Fire Safety Equipment merupakan perlengkapan penting yang digunakan
+oleh petugas pemadam kebakaran maupun tim tanggap darurat untuk
+melindungi diri dari panas ekstrem, asap beracun, percikan api,
+serta berbagai bahaya yang muncul saat terjadi kebakaran.
+</p>
+
+</div>
+
+</section>
+
+<!-- PRODUCT SECTION -->
+
+<section class="section" id="products">
+
+<!-- HELMET -->
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="https://balifire.id/images/2023/10/02/safety-helmet-pemadam-full-gard.jpg" alt="Safety Fire Helmet">
+</div>
+
+<div class="product-content">
+
+<span>01</span>
+
+<h2>
+Safety Fire Helmet
+</h2>
+
+<p>
+Safety Fire Helmet merupakan perlengkapan pelindung kepala yang
+dirancang khusus untuk melindungi petugas pemadam kebakaran dari
+benturan, panas ekstrem, percikan api, serta risiko jatuhan benda
+saat proses pemadaman berlangsung.
+</p>
+
+<p>
+Helm pemadam kebakaran modern diproduksi menggunakan material
+thermoplastic atau composite berkekuatan tinggi yang mampu
+memberikan perlindungan maksimal dalam kondisi operasional berat.
+</p>
+
+<p>
+Selain perlindungan kepala, helm juga dilengkapi face shield,
+neck protector, serta sistem suspensi yang meningkatkan kenyamanan
+selama digunakan dalam waktu lama.
+</p>
+
+<div class="feature-list">
+
+<div class="feature-item">
+✓ High Impact Resistance
+</div>
+
+<div class="feature-item">
+✓ Heat Resistant Material
+</div>
+
+<div class="feature-item">
+✓ Integrated Face Shield
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- BAJU -->
+
+<div class="product-card reverse">
+
+<div class="product-image">
+<img src="https://starvvo.com/media/k2/items/cache/39ab3bf46ced9d4856c25205fb92582a_M.jpg?t=20240414_130242" alt="Baju Pemadam Kebakaran">
+</div>
+
+<div class="product-content">
+
+<span>02</span>
+
+<h2>
+Baju Pemadam Kebakaran
+</h2>
+
+<p>
+Baju Pemadam Kebakaran atau Fire Fighting Suit merupakan alat
+pelindung diri utama yang digunakan untuk melindungi tubuh
+petugas dari paparan panas tinggi, nyala api, dan radiasi termal.
+</p>
+
+<p>
+Pakaian ini umumnya menggunakan material Nomex, Kevlar,
+atau kombinasi multi-layer fabric yang telah memenuhi standar
+internasional untuk perlindungan kebakaran struktural.
+</p>
+
+<p>
+Desain ergonomis memungkinkan mobilitas tinggi sehingga petugas
+tetap dapat bekerja secara efektif saat melakukan penyelamatan
+dan pemadaman.
+</p>
+
+<div class="feature-list">
+
+<div class="feature-item">
+✓ Flame Resistant
+</div>
+
+<div class="feature-item">
+✓ Thermal Protection
+</div>
+
+<div class="feature-item">
+✓ Reflective Safety Tape
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- BOOTS -->
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="https://starvvo.com/media/k2/items/cache/1fc372946c0b98fb8d7f87d4c38ea83a_L.jpg?t=20231030_023330" alt="Sepatu Pemadam Kebakaran">
+</div>
+
+<div class="product-content">
+
+<span>03</span>
+
+<h2>
+Sepatu Pemadam Kebakaran
+</h2>
+
+<p>
+Sepatu pemadam kebakaran dirancang untuk melindungi kaki dari
+panas, benda tajam, material berat, serta permukaan licin saat
+operasi pemadaman berlangsung.
+</p>
+
+<p>
+Material karet tahan api dan steel toe cap memberikan perlindungan
+optimal terhadap benturan maupun penetrasi benda tajam.
+</p>
+
+<div class="feature-list">
+
+<div class="feature-item">
+✓ Steel Toe Protection
+</div>
+
+<div class="feature-item">
+✓ Anti Slip Sole
+</div>
+
+<div class="feature-item">
+✓ Heat Resistant Rubber
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- GLOVES -->
+
+<div class="product-card reverse">
+
+<div class="product-image">
+<img src="https://starvvo.com/media/k2/items/cache/47674e109b85ae6495880f2604f34f58_L.jpg?t=20240415_063417" alt="Sarung Tangan Pemadam Kebakaran">
+</div>
+
+<div class="product-content">
+
+<span>04</span>
+
+<h2>
+Sarung Tangan Pemadam Kebakaran
+</h2>
+
+<p>
+Sarung tangan pemadam kebakaran memberikan perlindungan terhadap
+panas, abrasi, benda tajam, serta kontak langsung dengan material
+berbahaya selama proses penanganan kebakaran.
+</p>
+
+<div class="feature-list">
+
+<div class="feature-item">
+✓ Heat Resistant
+</div>
+
+<div class="feature-item">
+✓ Cut Resistant
+</div>
+
+<div class="feature-item">
+✓ High Grip Performance
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- MASK -->
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="https://starvvo.com/media/k2/items/cache/7acce66d40ec90c2d61987b409cbf850_Generic.jpg?t=20240415_063408" alt="Masker Pemadam Kebakaran">
+</div>
+
+<div class="product-content">
+
+<span>05</span>
+
+<h2>
+Masker Pemadam Kebakaran
+</h2>
+
+<p>
+Masker pemadam kebakaran membantu melindungi sistem pernapasan
+dari asap, debu, partikel berbahaya, dan gas beracun yang
+dihasilkan selama kebakaran.
+</p>
+
+<div class="feature-list">
+
+<div class="feature-item">
+✓ Smoke Protection
+</div>
+
+<div class="feature-item">
+✓ Toxic Gas Filtration
+</div>
+
+<div class="feature-item">
+✓ Comfortable Design
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SCBA -->
+
+<div class="product-card reverse">
+
+<div class="product-image">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfqf0m8_cZ1ad33MG7QTIsDVc79E1UhvEJwg&s" alt="SCBA">
+</div>
+
+<div class="product-content">
+
+<span>06</span>
+
+<h2>
+Breathing Apparatus (SCBA)
+</h2>
+
+<p>
+Self Contained Breathing Apparatus (SCBA) merupakan sistem
+pernapasan mandiri yang menyediakan udara bersih bagi petugas
+saat bekerja di area dengan kadar oksigen rendah atau
+terkontaminasi asap dan gas beracun.
+</p>
+
+<p>
+SCBA menjadi perlengkapan wajib dalam operasi pemadaman modern,
+rescue operation, confined space, dan area hazardous environment.
+</p>
+
+<div class="feature-list">
+
+<div class="feature-item">
+✓ Self Contained Air Supply
+</div>
+
+<div class="feature-item">
+✓ High Pressure Cylinder
+</div>
+
+<div class="feature-item">
+✓ Emergency Rescue Ready
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FIRE BLANKET -->
+
+<div class="product-card">
+
+<div class="product-image">
+<img src="https://balifire.id/images/4f1e32a9-a1aa-41df-a619-0f8f236704b6.png" alt="Fire Blanket">
+</div>
+
+<div class="product-content">
+
+<span>07</span>
+
+<h2>
+Fire Blanket
+</h2>
+
+<p>
+Fire Blanket merupakan lembaran tahan api yang digunakan untuk
+memadamkan api kecil dengan cara mengisolasi suplai oksigen.
+</p>
+
+<p>
+Produk ini sangat efektif digunakan pada area dapur, laboratorium,
+industri, dan fasilitas publik sebagai perlindungan awal sebelum
+api berkembang lebih besar.
+</p>
+
+<div class="feature-list">
+
+<div class="feature-item">
+✓ Quick Fire Suppression
+</div>
+
+<div class="feature-item">
+✓ Fiberglass Material
+</div>
+
+<div class="feature-item">
+✓ Easy To Use
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="section">
+
+<div class="cta">
+
+<h2>
+Konsultasikan Kebutuhan Fire Safety Equipment Anda
+</h2>
+
+<p>
+STARVVO menyediakan perlengkapan keselamatan kebakaran profesional
+untuk industri, gedung komersial, rumah sakit, hotel, fasilitas
+publik, dan proyek proteksi kebakaran berskala besar.
+</p>
+
+<a href="https://wa.me/6281319131032?text=Halo%20STARVVO,%20saya%20ingin%20berkonsultasi%20mengenai%20produk%20fire%20protection."
+class="cta-btn">
+Contact STARVVO
+</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 STARVVO - PT Global Mitra Proteksindo
+</footer>
+
+<!-- Floating WhatsApp -->
+<a
+  href="https://wa.me/6281319131032?text=Halo%20STARVVO,%20saya%20ingin%20berkonsultasi%20mengenai%20produk%20fire%20protection."
+  class="floating-wa"
+  target="_blank"
+>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/500px-WhatsApp_icon.png" alt="WhatsApp">
+</a>
+
+<script src="script.js"></script>
+
+<style>
+  /* FLOATING WHATSAPP */
+.floating-wa{
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  z-index: 9999;
+  transition: all .3s ease;
+  animation: waPulse 2s infinite;
+}
+
+.floating-wa img{
+  width: 35px;
+  height: 35px;
+}
+
+.floating-wa:hover{
+  transform: translateY(-5px) scale(1.08);
+}
+
+@keyframes waPulse{
+  0%{
+    box-shadow: 0 0 0 0 rgba(37,211,102,.5);
+  }
+  70%{
+    box-shadow: 0 0 0 20px rgba(37,211,102,0);
+  }
+  100%{
+    box-shadow: 0 0 0 0 rgba(37,211,102,0);
+  }
+}
+</style>
+
+</body>
+</html>

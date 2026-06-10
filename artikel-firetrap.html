@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>FireTRAP System - STARVVO</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+/* OFFICE SECTION */
+.office-section {
+  padding: 100px 8%;
+  background: #f8f9fb;
+}
+
+.office-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.office-card {
+  background: #fff;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: .3s;
+}
+
+.office-card:hover {
+  transform: translateY(-5px);
+}
+
+.office-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.office-city {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  background: #e60012;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.office-card p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.office-info strong {
+  color: #111;
+}
+
+/* SISTER SITE */
+.sister-site {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.sister-site h3 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.site-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.site-links a {
+  padding: 14px 24px;
+  background: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: .3s;
+}
+
+.site-links a:hover {
+  background: #e60012;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* MAPS */
+.maps-section {
+  margin-top: 80px;
+}
+
+.maps-section h3 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.maps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.maps-grid iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#f5f7fb;
+      color:#1d1d1d;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    /* HEADER */
+
+    header{
+      width:100%;
+      padding:22px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      z-index:999;
+      background:rgba(10,10,10,0.85);
+      backdrop-filter:blur(10px);
+    }
+
+    .logo{
+      color:red;
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:2px;
+    }
+
+    nav{
+      display:flex;
+      gap:35px;
+    }
+
+    nav a{
+      color:#fff;
+      font-size:15px;
+      transition:.3s;
+    }
+
+    nav a:hover{
+      color:#ff3b3b;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+      url('https://starvvo.com/images/2022/11/11/kitchen_fire_suppression_starvvo_firetrap_2020.png');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      padding:0 8%;
+    }
+
+    .hero-content{
+      max-width:800px;
+      color:#fff;
+    }
+
+    .hero-badge{
+      background:#ff3b3b;
+      padding:10px 22px;
+      border-radius:50px;
+      display:inline-block;
+      margin-bottom:25px;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .hero h1{
+      font-size:68px;
+      line-height:1.1;
+      margin-bottom:25px;
+      font-weight:800;
+    }
+
+    .hero p{
+      font-size:18px;
+      line-height:1.9;
+      color:#ddd;
+      margin-bottom:35px;
+    }
+
+    .hero-btn{
+      display:inline-block;
+      padding:16px 34px;
+      background:#ff3b3b;
+      color:#fff;
+      border-radius:60px;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .hero-btn:hover{
+      background:#d92a2a;
+      transform:translateY(-3px);
+    }
+
+    /* SECTION */
+
+    .section{
+      padding:110px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title span{
+      color:#ff3b3b;
+      font-weight:600;
+      letter-spacing:1px;
+    }
+
+    .section-title h2{
+      font-size:48px;
+      margin-top:15px;
+      margin-bottom:20px;
+    }
+
+    .section-title p{
+      max-width:800px;
+      margin:auto;
+      line-height:1.9;
+      color:#666;
+    }
+
+    /* INTRO */
+
+    .intro{
+      max-width:1100px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .intro p{
+      font-size:18px;
+      line-height:2;
+      color:#555;
+    }
+
+    /* CARD */
+
+    .system-card{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:center;
+      margin-bottom:120px;
+    }
+
+    .system-card.reverse{
+      direction:rtl;
+    }
+
+    .system-card.reverse .system-content{
+      direction:ltr;
+    }
+
+    .system-image{
+      position:relative;
+    }
+
+    .system-image img{
+      width:100%;
+      border-radius:28px;
+      background:#fff;
+      padding:14px;
+      object-fit:contain;
+      box-shadow:0 20px 60px rgba(0,0,0,.08);
+      transition:.4s;
+    }
+
+    .system-image img:hover{
+      transform:translateY(-8px);
+    }
+
+    .system-content span{
+      color:#ff3b3b;
+      font-weight:600;
+      letter-spacing:1px;
+    }
+
+    .system-content h2{
+      font-size:42px;
+      margin:18px 0 25px;
+      line-height:1.2;
+    }
+
+    .system-content p{
+      line-height:2;
+      color:#555;
+      margin-bottom:20px;
+    }
+
+    .feature-list{
+      margin-top:30px;
+      display:grid;
+      gap:15px;
+    }
+
+    .feature-item{
+      background:#fff;
+      padding:16px 22px;
+      border-radius:14px;
+      box-shadow:0 5px 20px rgba(0,0,0,.05);
+      color:#444;
+      font-weight:500;
+    }
+
+    /* ADVANTAGES */
+
+    .advantages{
+      background:#101010;
+      color:#fff;
+      border-radius:40px;
+      padding:80px;
+      margin-top:50px;
+    }
+
+    .advantages-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:25px;
+      margin-top:50px;
+    }
+
+    .adv-card{
+      background:rgba(255,255,255,.06);
+      padding:35px;
+      border-radius:24px;
+      transition:.3s;
+    }
+
+    .adv-card:hover{
+      transform:translateY(-5px);
+      background:rgba(255,255,255,.09);
+    }
+
+    .adv-card h3{
+      margin-bottom:15px;
+      font-size:22px;
+    }
+
+    .adv-card p{
+      line-height:1.8;
+      color:#ccc;
+    }
+
+    /* CTA */
+
+    .cta{
+      margin-top:120px;
+      background:
+      linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+      url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      padding:100px 8%;
+      border-radius:40px;
+      text-align:center;
+      color:#fff;
+    }
+
+    .cta h2{
+      font-size:52px;
+      margin-bottom:25px;
+    }
+
+    .cta p{
+      max-width:850px;
+      margin:auto;
+      line-height:2;
+      color:#ddd;
+      margin-bottom:40px;
+    }
+
+    .cta-btn{
+      display:inline-block;
+      padding:18px 38px;
+      border-radius:60px;
+      background:#ff3b3b;
+      color:#fff;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .cta-btn:hover{
+      background:#d92a2a;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:40px;
+      text-align:center;
+      color:#777;
+      font-size:15px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:991px){
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .system-card{
+        grid-template-columns:1fr;
+      }
+
+      .system-card.reverse{
+        direction:ltr;
+      }
+
+      .section-title h2{
+        font-size:38px;
+      }
+
+      .cta h2{
+        font-size:38px;
+      }
+
+      nav{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo">
+      STARVVO
+    </div>
+
+    <nav>
+  <a href="index2.html">Home</a>
+      <a href="index2.html#products">Products</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="artikel.html">Artikel</a>
+      <a href="index2.html#Complience">Complience</a>
+      <a href="portofolio1.html">Portfolio</a>
+        <a href="index2.html#Kontak">Kontak</a>
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <span class="hero-badge">
+        FIRE PROTECTION SYSTEM
+      </span>
+
+      <h1>
+        FireTRAP System
+      </h1>
+
+      <p>
+        Sistem proteksi kebakaran otomatis modern untuk perlindungan
+        electrical panel, server rack, kitchen commercial,
+        dan kendaraan operasional dengan teknologi fire suppression profesional.
+      </p>
+
+      <a href="#systems" class="hero-btn">
+        Explore System
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- INTRO -->
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <span>ABOUT SYSTEM</span>
+
+      <h2>
+        Solusi Fire Suppression Modern
+      </h2>
+
+      <p>
+        STARVVO menghadirkan FireTRAP System profesional untuk berbagai area
+        berisiko tinggi dengan teknologi proteksi otomatis yang cepat,
+        efisien, dan terpercaya.
+      </p>
+
+    </div>
+
+    <div class="intro">
+
+      <p>
+        FireTRAP System merupakan sistem pemadam kebakaran otomatis yang
+        dirancang untuk mendeteksi dan memadamkan api secara cepat sebelum
+        kebakaran berkembang lebih besar. Sistem ini banyak digunakan pada
+        area industrial, commercial building, kitchen, server room,
+        hingga kendaraan operasional yang memiliki risiko kebakaran tinggi.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SYSTEMS -->
+
+  <section class="section" id="systems">
+
+    <!-- ELECTRICAL -->
+
+    <div class="system-card">
+
+      <div class="system-image">
+
+        <img src="https://firesolution.id/images/firesystem/elektrikal-panel-fire-trap.png" alt="Electrical Panel FireTRAP">
+
+      </div>
+
+      <div class="system-content">
+
+        <span>01</span>
+
+        <h2>
+          Electrical Panel FireTRAP System
+        </h2>
+
+        <p>
+          Sistem proteksi kebakaran otomatis untuk melindungi panel listrik,
+          control panel, dan electrical cabinet dari risiko korsleting,
+          overheating, dan gangguan kelistrikan.
+        </p>
+
+        <p>
+          FireTRAP bekerja secara otomatis mendeteksi panas abnormal
+          dan langsung melakukan proses pemadaman untuk mencegah
+          penyebaran api pada sistem kelistrikan industri.
+        </p>
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            ✓ LVMDP & MCC Panel Protection
+          </div>
+
+          <div class="feature-item">
+            ✓ Automatic Fire Detection
+          </div>
+
+          <div class="feature-item">
+            ✓ Industrial Electrical Safety
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SERVER -->
+
+    <div class="system-card reverse">
+
+      <div class="system-image">
+
+        <img src="https://starvvo.com/images/2023/03/11/ilustrasi-indirect-firetrap.png" alt="Server Rack FireTRAP">
+
+      </div>
+
+      <div class="system-content">
+
+        <span>02</span>
+
+        <h2>
+          Server Rack FireTRAP System
+        </h2>
+
+        <p>
+          Sistem fire suppression profesional untuk perlindungan
+          server room, data center, dan rack server terhadap risiko
+          overheating maupun kebakaran perangkat elektronik.
+        </p>
+
+        <p>
+          Sistem ini menggunakan teknologi pemadaman modern yang aman
+          untuk perangkat IT dan membantu menjaga stabilitas
+          operasional perusahaan.
+        </p>
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            ✓ Data Center Protection
+          </div>
+
+          <div class="feature-item">
+            ✓ Safe For Electronic Equipment
+          </div>
+
+          <div class="feature-item">
+            ✓ Fast Automatic Response
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- KITCHEN -->
+
+    <div class="system-card">
+
+      <div class="system-image">
+
+        <img src="https://firesolution.id/images/firesystem/Fire%20Kitchen%20Indirect.png" alt="Kitchen FireTRAP">
+
+      </div>
+
+      <div class="system-content">
+
+        <span>03</span>
+
+        <h2>
+          Kitchen FireTRAP System
+        </h2>
+
+        <p>
+          Solusi proteksi otomatis untuk kitchen commercial,
+          restaurant, hotel, dan industrial kitchen dari risiko
+          kebakaran minyak maupun api terbuka.
+        </p>
+
+        <p>
+          Kitchen FireTRAP dipasang pada kitchen hood,
+          fryer, grill area, dan ducting system untuk memberikan
+          perlindungan maksimal pada area memasak.
+        </p>
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            ✓ Kitchen Hood Protection
+          </div>
+
+          <div class="feature-item">
+            ✓ Commercial Kitchen Safety
+          </div>
+
+          <div class="feature-item">
+            ✓ Automatic Fire Suppression
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- VEHICLE -->
+
+    <div class="system-card reverse">
+
+      <div class="system-image">
+
+        <img src="https://firesolution.id/images/firesystem/Vehicle%20Exca%20Direct%20Fire%20System.png" alt="Vehicle FireTRAP">
+
+      </div>
+
+      <div class="system-content">
+
+        <span>04</span>
+
+        <h2>
+          Vehicle FireTRAP System
+        </h2>
+
+        <p>
+          Sistem proteksi kebakaran otomatis untuk kendaraan operasional,
+          alat berat, mining vehicle, dan engine compartment
+          dengan sistem deteksi dan pemadaman cepat.
+        </p>
+
+        <p>
+          Vehicle FireTRAP membantu melindungi aset kendaraan,
+          operator, dan operasional industri dari risiko
+          kebakaran engine maupun fuel system.
+        </p>
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            ✓ Heavy Equipment Protection
+          </div>
+
+          <div class="feature-item">
+            ✓ Mining & Industrial Vehicle
+          </div>
+
+          <div class="feature-item">
+            ✓ Engine Compartment Safety
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ADVANTAGES -->
+
+    <div class="advantages">
+
+      <div class="section-title">
+
+        <span>WHY STARVVO</span>
+
+        <h2>
+          Keunggulan FireTRAP System
+        </h2>
+
+      </div>
+
+      <div class="advantages-grid">
+
+        <div class="adv-card">
+
+          <h3>
+            Automatic System
+          </h3>
+
+          <p>
+            Sistem bekerja otomatis mendeteksi dan memadamkan api
+            dengan respon cepat.
+          </p>
+
+        </div>
+
+        <div class="adv-card">
+
+          <h3>
+            Fast Protection
+          </h3>
+
+          <p>
+            Mengurangi risiko penyebaran api dan meminimalkan
+            kerusakan aset perusahaan.
+          </p>
+
+        </div>
+
+        <div class="adv-card">
+
+          <h3>
+            Professional Installation
+          </h3>
+
+          <p>
+            Instalasi dilakukan oleh teknisi fire protection
+            profesional dan berpengalaman.
+          </p>
+
+        </div>
+
+        <div class="adv-card">
+
+          <h3>
+            Industrial Standard
+          </h3>
+
+          <p>
+            Cocok digunakan untuk industrial building,
+            commercial area, dan heavy equipment.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+
+    <div class="cta">
+
+      <h2>
+        Konsultasikan Sistem FireTRAP Anda
+      </h2>
+
+      <p>
+        STARVVO siap membantu kebutuhan fire protection system
+        untuk industrial, commercial building, kitchen,
+        data center, dan kendaraan operasional.
+      </p>
+
+      <a href="https://wa.me/6281319131032?text=Halo%20STARVVO,%20saya%20ingin%20berkonsultasi%20mengenai%20produk%20fire%20protection." 
+      class="cta-btn">
+        Contact STARVVO
+      </a>
+
+    </div>
+
+  </section>
+
+<!-- OFFICE INFO -->
+<section class="office-section" id="office">
+
+  <div class="section-title">
+    <span>OUR OFFICE</span>
+    <h2>Show Room, Factory & Workshop</h2>
+
+    <p>
+      Kunjungi showroom, workshop, dan kantor operasional STARVVO
+      untuk konsultasi sistem proteksi kebakaran profesional.
+    </p>
+  </div>
+
+  <div class="office-container">
+
+    <!-- SHOWROOM -->
+    <div class="office-card">
+      <h3>Show Room & Marketing</h3>
+      <span class="office-city">Jakarta</span>
+
+      <p>
+        Komp. Perkantoran Mutiara Taman Palem<br>
+        Blok A15 No. 27-28<br>
+        Cengkareng, Jakarta Barat 11730
+      </p>
+
+      <div class="office-info">
+        <p><strong>Email:</strong> sales@gmpro.id</p>
+
+        <p><strong>Whatsapp:</strong> 081311828873</p>
+
+        <p>
+          <strong>Telephone:</strong><br>
+          021-2230-2338<br>
+          021-5433-1863<br>
+          021-2252-3267
+        </p>
+      </div>
+    </div>
+
+    <!-- FACTORY -->
+    <div class="office-card">
+      <h3>Factory & Workshop</h3>
+      <span class="office-city">Tangerang</span>
+
+      <p>
+        Jl. AMD Manunggal No. 99,<br>
+        Cadas Lebak Wangi,<br>
+        Sepatan, Tangerang 15520
+      </p>
+
+      <div class="office-info">
+        <p><strong>Email:</strong> sales@gmpro.id</p>
+
+        <p>
+          <strong>Telephone:</strong><br>
+          021-5937-1000
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SISTER SITE -->
+  <div class="sister-site">
+
+    <h3>Our Sister Site</h3>
+
+    <div class="site-links">
+
+      <a href="https://agenalatpemadamapi.com" target="_blank">
+        agenalatpemadamapi.com
+      </a>
+
+      <a href="https://alatpemadamapi.co.id" target="_blank">
+        alatpemadamapi.co.id
+      </a>
+
+      <a href="https://balifire.id" target="_blank">
+        balifire.id
+      </a>
+
+      <a href="https://fm200.co.id" target="_blank">
+        fm200.co.id
+      </a>
+
+      <a href="https://instalasifire.com" target="_blank">
+        instalasifire.com
+      </a>
+
+      <a href="https://instalasihydrant.com" target="_blank">
+        instalasihydrant.com
+      </a>
+
+      <a href="https://starvvo.com/en/" target="_blank">
+        starvvo.com/en
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- MAPS -->
+  <div class="maps-section">
+
+    <h3>Our Maps Address</h3>
+
+    <div class="maps-grid">
+
+<iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7933.88265451063!2d106.732341!3d-6.138585!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d56aaaaaaab%3A0x34411c9603cb754d!2sAlat%20Pemadam%20Api%20Ringan%20-%20PT.%20Global%20Mitra%20Proteksindo!5e0!3m2!1sen!2sus!4v1779949270741!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+      </iframe>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 STARVVO - PT Global Mitra Proteksindo
+  </footer>
+
+<!-- Floating WhatsApp -->
+<a
+  href="https://wa.me/6281319131032?text=Halo%20STARVVO,%20saya%20ingin%20berkonsultasi%20mengenai%20produk%20fire%20protection."
+  class="floating-wa"
+  target="_blank"
+>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/500px-WhatsApp_icon.png" alt="WhatsApp">
+</a>
+
+<script src="script.js"></script>
+
+<style>
+  /* FLOATING WHATSAPP */
+.floating-wa{
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  z-index: 9999;
+  transition: all .3s ease;
+  animation: waPulse 2s infinite;
+}
+
+.floating-wa img{
+  width: 35px;
+  height: 35px;
+}
+
+.floating-wa:hover{
+  transform: translateY(-5px) scale(1.08);
+}
+
+@keyframes waPulse{
+  0%{
+    box-shadow: 0 0 0 0 rgba(37,211,102,.5);
+  }
+  70%{
+    box-shadow: 0 0 0 20px rgba(37,211,102,0);
+  }
+  100%{
+    box-shadow: 0 0 0 0 rgba(37,211,102,0);
+  }
+}
+</style>
+
+</body>
+</html>
