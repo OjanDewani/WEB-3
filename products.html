@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products | STARVVO</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+.products-hero{
+    position:relative;
+    width:100%;
+    height:100vh; /* dari 100vh menjadi 85vh */
+    min-height:600px;
+    background:url("https://i.pinimg.com/736x/de/95/1e/de951e7000de2c04f774aadd8cdfde85.jpg") center center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    padding:0 20px;
+}
+
+.hero-content h1{
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    margin-bottom:20px;
+}
+
+.hero-content span{
+    display:block;
+    margin-bottom:15px;
+}
+
+.hero-content h1{
+    font-size:60px;
+    line-height:1.1;
+    margin:0 0 20px;
+}
+
+.hero-content p{
+    margin:0 auto 30px;
+    line-height:1.8;
+    max-width:700px;
+}
+.hero-btn{
+    display:inline-block;
+    padding:16px 35px;
+    background:#d60000;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.hero-btn:hover{
+    background:#b50000;
+    transform:translateY(-3px);
+}
+
+.product-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+    text-align:center;
+}
+
+.product-card img{
+    width:100%;
+    height: 200px;
+    object-fit:contain;
+    padding:15px;
+}
+
+.product-card h3{
+    padding:0 15px;
+    margin-bottom:15px;
+    color:#222;
+}
+
+.read-more-btn{
+    display:block;
+    margin:15px;
+    padding:12px;
+    background:#d60000;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.read-more-btn:hover{
+    background:#b50000;
+    transform:translateY(-2px);
+}
+
+.product-card a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.product-card h3{
+    text-decoration:none;
+    color:#222;
+    font-size:18px;
+    font-weight:600;
+    margin:15px;
+}
+
+.quick-view-btn{
+    width:calc(100% - 30px);
+    margin:0 15px 15px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#222;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.quick-view-btn:hover{
+    background:#d60000;
+}
+
+.quick-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.quick-modal.active{
+    display:flex;
+}
+
+.quick-content{
+    background:#fff;
+    width:90%;
+    max-width:900px;
+    border-radius:15px;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.quick-image{
+    background:#f5f5f5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+}
+
+.quick-image img{
+    width:100%;
+    max-height:400px;
+    object-fit:contain;
+}
+
+.quick-info{
+    padding:35px;
+}
+
+.quick-info h2{
+    margin-bottom:15px;
+}
+
+.quick-info p{
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.quick-actions{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.quick-actions a{
+    padding:12px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.view-detail{
+    background:#d60000;
+    color:#fff;
+}
+
+.rfq-btn{
+    background:#222;
+    color:#fff;
+}
+
+.close-modal{
+    position:absolute;
+    top:20px;
+    right:25px;
+    font-size:35px;
+    color:white;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.quick-content{
+    grid-template-columns:1fr;
+}
+
+}
+
+.category-section{
+    padding:40px 5%;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.office-section{
+    padding:60px 5%;
+}
+
+.sister-site{
+    margin-top:40px;
+}
+
+.site-links{
+    gap:10px;
+}
+
+
+
+</style>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+
+<header>
+      <div class="logo">STARVVO</div>
+
+      <nav>
+        <a href="index2.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="artikel.html">Artikel</a>
+        <a href="compliance.html">Compliance</a>
+        <a href="portofolio1.html">Portofolio</a>
+        <a href="index2.html#contact">Kontak</a>
+      </nav>
+    </header>
+
+<section class="products-hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <span>FIRE PROTECTION SOLUTIONS</span>
+
+        <h1>
+            Complete Fire Protection Products
+        </h1>
+
+        <p>
+            Fire Extinguisher, Fire Alarm System,
+            Fire Hydrant System, Fire Suppression System,
+            Fire Safety Equipment, Refill APAR dan Hydrotest.
+        </p>
+
+
+    </div>
+
+</section>
+
+<!-- FIRE EXTINGUISHER -->
+
+<section class="category-section">
+
+    <h2>Fire Extinguisher</h2>
+
+    <div class="product-grid">
+
+<div class="product-card">
+    <a href="dcp.html">
+        <img src="https://starvvo.com/images/virtuemart/product/Starvvo%203%20kg.png">
+        <h3>Dry Chemical Powder ABC</h3>
+        <button class="quick-view-btn">
+Quick View
+</button>
+    </a>
+
+</div>
+
+        <a href="co2.html" class="product-card">
+            <img src="https://starvvo.com/images/virtuemart/product/co2%2023%20kg.png">
+            <h3>CO₂ Fire Extinguisher</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="foam.html" class="product-card">
+            <img src="https://starvvo.com/images/2024/07/12/foam-6-kg.png">
+            <h3>Foam AFFF</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="af11.html" class="product-card">
+            <img src="https://starvvo.com/images/com_droppics/22/af11.jpg">
+            <h3>AF11 Clean Agent</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="af36.html" class="product-card">
+            <img src="https://starvvo.com/images/2026/01/03/starvvo-af-36-3-kg.png">
+            <h3>AF36 Clean Agent</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="f500ea.html" class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Vfva33r3NjcXnT4eFXPbpEgACuAr0cWDWQ&s">
+            <h3>F500EA</h3><button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FIRE ALARM -->
+
+<section class="category-section">
+
+    <h2>Fire Alarm System</h2>
+
+    <div class="product-grid">
+
+        <a href="smoke.html" class="product-card">
+            <img src="https://vincifire.com/wp-content/uploads/2019/08/Photoelectric-Smoke-Detector-600x600.png">
+            <h3>Smoke Detector DEMCO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="heat.html" class="product-card">
+            <img src="https://gemilangciptaabadi.com/1/images/our-products/product-simplex/heatdetector.png">
+            <h3>Heat Detector STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="panel.html" class="product-card">
+            <img src="https://firesol.id/wp-content/uploads/2025/04/Panel-Context-Plus-EP203.png">
+            <h3>Panel MCFA DEMCO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="manual.html" class="product-card">
+            <img src="https://vincifire.com/wp-content/uploads/2020/03/Manual-Call-Point-600x600.png">
+            <h3>Manual Call Point DEMCO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="bell.html" class="product-card">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2020/8/WD/OH/UQ/74580991/fire-alarm-bell-500x500.png">
+            <h3>Alarm Bell DEMCO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="strobe.html" class="product-card">
+            <img src="https://images.squarespace-cdn.com/content/v1/596e4c424402430483028518/1504626332070-056FIWTAUD8KFYVCDSC5/D-4017_small.png">
+            <h3>Horn Strobe DEMCO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FIRE SAFETY -->
+
+<section class="category-section">
+
+    <h2>Fire Safety Equipment</h2>
+
+    <div class="product-grid">
+
+        <a href="helmet.html" class="product-card">
+            <img src="https://starvvo.com/images/2022/12/28/helmet-300x300.png">
+            <h3>Fire Helmet STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="suit.html" class="product-card">
+            <img src="data:image/jpeg;base64,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">
+            <h3>Fire Suit STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="boots.html" class="product-card">
+            <img src="https://mariteam.dk/wp-content/uploads/2023/03/2MZN_398_A2_VXR_FR.png">
+            <h3>Fire Boots STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="scba.html" class="product-card">
+            <img src="https://starvvo.com/images/2023/03/11/pt-global-mitra-proteksindo-min.png">
+            <h3>SCBA STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="tangan.html" class="product-card">
+            <img src="https://indosan.com/images/categories/1703421500-rescue%20glove.jpg">
+            <h3>Sarung Tangan STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="masker.html" class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtp_BIwifJAjOTYN8XM2qH0f26iZReh3Zy_Q&s">
+            <h3>Masker STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+
+    </div>
+
+</section>
+
+<!-- FIRE HYDRANT -->
+
+<section class="category-section">
+
+    <h2>Fire Hydrant System</h2>
+
+    <div class="product-grid">
+
+        <a href="box.html" class="product-card">
+            <img src="https://vincifire.com/wp-content/uploads/2019/09/HB-Tipe-C-png-smaller.png">
+            <h3>Hydrant Box STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="hose.html" class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLDZAgKjqrPSuHPAX1R-uuaMUlWd0nbhR84g&s">
+            <h3>Fire Hose STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="nozzle.html" class="product-card">
+            <img src="https://vincifire.com/wp-content/uploads/2019/09/Nozzle-Jet-png-smaller.png">
+            <h3>Fire Nozzle STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="pillar.html" class="product-card">
+            <img src="https://starvvo.com/images/com_droppics/22/HYDRANT-PILLAR-2.png">
+            <h3>Hydrant Pillar STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="valve.html" class="product-card">
+            <img src="https://onda.id/wp-content/uploads/2021/08/hydrant-valve-16K.png">
+            <h3>Hydrant Valve STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+                <a href="pompa.html" class="product-card">
+            <img src="https://www.hondaindiapower.com/admin/public/uploads/Products/zmpeYBRiC_Cover.jpg">
+            <h3>Fire Pompa HONDA</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+
+    </div>
+
+</section>
+
+<!-- FIRE SUPPRESSION -->
+
+<section class="category-section">
+
+    <h2>Fire Suppression System</h2>
+
+    <div class="product-grid">
+
+        <a href="fm200.html" class="product-card">
+            <img src="https://reedfox.id/wp-content/uploads/img/blog/produk/fss/hygood/hygood-fm200.webp">
+            <h3>FM200 System STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FIRE TRAP -->
+
+<section class="category-section">
+
+    <h2>Fire Trap System</h2>
+
+    <div class="product-grid">
+
+        <a href="kitchen.html" class="product-card">
+            <img src="https://firesolution.id/images/firesystem/Fire%20Kitchen%20Indirect.png">
+            <h3>Kitchen FireTRAP STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="rack.html" class="product-card">
+            <img src="https://firesolution.id/images/firesystem/server-indirect-firetrap-system.png">
+            <h3>Server Rack Indirect FireTRAP STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+                <a href="vehicle.html" class="product-card">
+            <img src="https://firesolution.id/images/firesystem/Vehicle%20Bus%20Indirect%20Fire%20System.png">
+            <h3>Vehicle FireTRAP STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+                <a href="electrical.html" class="product-card">
+            <img src="https://firesolution.id/images/firesystem/elektrikal-panel-fire-trap.png">
+            <h3>Electrical Panel FireTRAP STARVVO</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+
+    </div>
+
+</section>
+
+<!-- REFILL APAR -->
+
+<section class="category-section">
+
+    <h2>Refill APAR</h2>
+
+    <div class="product-grid">
+
+        <a href="refill-dcp.html" class="product-card">
+            <img src="https://starvvo.com/images/virtuemart/product/Starvvo%203%20kg.png">
+            <h3>Refill DCP</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="refill-co2.html" class="product-card">
+            <img src="https://starvvo.com/images/fp/fp-co2.png">
+            <h3>Refill CO₂</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+                <a href="refill-foam.html" class="product-card">
+            <img src="https://starvvo.com/images/2022/11/02/starvvo-foam-9-ltr.png">
+            <h3>Refill Foam AFFF</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- HYDROTEST -->
+
+<section class="category-section">
+
+    <h2>Hydrotest</h2>
+
+    <div class="product-grid">
+
+        <a href="hydrotest-portable.html" class="product-card">
+            <img src="https://firesolution.id/images/firesystem/Hydrostatic%20Cyl%20FM200.png">
+            <h3>Hydrotest APAR Portable</h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+        <a href="hydrotest-trolly.html" class="product-card">
+            <img src="https://starvvo.com/images/lounge/trolley-hydrotest.png">
+            <h3>Hydrotest APAR Trolly </h3>
+            <button class="quick-view-btn">
+Quick View
+</button>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- OFFICE INFO -->
+<section class="office-section" id="office">
+
+  <div class="section-title">
+    <span>OUR OFFICE</span>
+    <h2>Show Room, Factory & Workshop</h2>
+
+    <p>
+      Kunjungi showroom, workshop, dan kantor operasional STARVVO
+      untuk konsultasi sistem proteksi kebakaran profesional.
+    </p>
+  </div>
+
+  <div class="office-container">
+
+    <!-- SHOWROOM -->
+    <div class="office-card">
+      <h3>Show Room & Marketing</h3>
+      <span class="office-city">Jakarta</span>
+
+      <p>
+        Komp. Perkantoran Mutiara Taman Palem<br>
+        Blok A15 No. 27-28<br>
+        Cengkareng, Jakarta Barat 11730
+      </p>
+
+      <div class="office-info">
+        <p><strong>Email:</strong> sales@gmpro.id</p>
+
+        <p><strong>Whatsapp:</strong> 081319131032</p>
+
+        <p>
+          <strong>Telephone:</strong><br>
+          021-2230-2338<br>
+          021-5433-1863<br>
+          021-2252-3267
+        </p>
+      </div>
+    </div>
+
+    <!-- FACTORY -->
+    <div class="office-card">
+      <h3>Factory & Workshop</h3>
+      <span class="office-city">Tangerang</span>
+
+      <p>
+        Jl. AMD Manunggal No. 99,<br>
+        Cadas Lebak Wangi,<br>
+        Sepatan, Tangerang 15520
+      </p>
+
+      <div class="office-info">
+        <p><strong>Email:</strong> sales@gmpro.id</p>
+
+        <p><strong>Whatsapp:</strong> 081319131032</p>
+
+        <p>
+          <strong>Telephone:</strong><br>
+          021-5937-1000
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SISTER SITE -->
+  <div class="sister-site">
+
+    <h3>Our Sister Site</h3>
+
+    <div class="site-links">
+
+      <a href="https://agenalatpemadamapi.com" target="_blank">
+        agenalatpemadamapi.com
+      </a>
+
+      <a href="https://alatpemadamapi.co.id" target="_blank">
+        alatpemadamapi.co.id
+      </a>
+
+      <a href="https://balifire.id" target="_blank">
+        balifire.id
+      </a>
+
+      <a href="https://fm200.co.id" target="_blank">
+        fm200.co.id
+      </a>
+
+      <a href="https://instalasifire.com" target="_blank">
+        instalasifire.com
+      </a>
+
+      <a href="https://instalasihydrant.com" target="_blank">
+        instalasihydrant.com
+      </a>
+
+      <a href="https://starvvo.com/en/" target="_blank">
+        starvvo.com/en
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- MAPS -->
+  <div class="maps-section">
+
+    <h3>Our Maps Address</h3>
+
+    <div class="maps-grid">
+
+      <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7933.88265451063!2d106.732341!3d-6.138585!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1d56aaaaaaab%3A0x34411c9603cb754d!2sAlat%20Pemadam%20Api%20Ringan%20-%20PT.%20Global%20Mitra%20Proteksindo!5e0!3m2!1sen!2sus!4v1779949270741!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+      </iframe>
+
+
+
+    </div>
+
+  </div>
+
+</section>
+
+    <footer>
+      <p>© 2026 STARVVO - PT Global Mitra Proteksindo</p>
+    </footer>
+
+
+<!-- Floating WhatsApp -->
+<a
+  href="https://wa.me/6281319131032?text=Halo%20STARVVO,%20saya%20ingin%20berkonsultasi%20mengenai%20produk%20fire%20protection."
+  class="floating-wa"
+  target="_blank"
+>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/500px-WhatsApp_icon.png" alt="WhatsApp">
+</a>
+
+
+</body>
+</html>
