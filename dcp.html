@@ -246,6 +246,31 @@ footer{
 }
 
 
+/* PRODUCT NAVIGATION */
+.product-navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 80px auto;
+    max-width: 1200px;
+    padding: 0 30px;
+}
+
+.product-navigation a{
+    text-decoration: none;
+    color: #fff;
+    background: #111;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.product-navigation a:hover{
+    background: #d60000;
+    transform: translateY(-3px);
+}
+
 </style>
 </head>
 <body>
@@ -479,6 +504,18 @@ Hubungi Kami
 
   </section>
 
+<section class="product-navigation">
+
+    <a href="products.html" class="prev-product">
+        ← Back to Products
+    </a>
+
+    <a href="co2.html" class="next-product">
+        Next Product →
+    </a>
+
+</section>
+
 <!-- OFFICE INFO -->
 <section class="office-section" id="office">
 
@@ -601,9 +638,6 @@ Hubungi Kami
 
 </section>
 
-    <footer>
-      <p>© 2026 STARVVO - PT Global Mitra Proteksindo</p>
-    </footer>
 
     <script src="script.js"></script>
 

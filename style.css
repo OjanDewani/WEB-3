@@ -2563,3 +2563,27 @@ body{
     font-weight:600;
 }
 
+/* PRODUCT NAVIGATION */
+.product-navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 80px auto;
+    max-width: 1200px;
+    padding: 0 30px;
+}
+
+.product-navigation a{
+    text-decoration: none;
+    color: #fff;
+    background: #111;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.product-navigation a:hover{
+    background: #d60000;
+    transform: translateY(-3px);
+}
