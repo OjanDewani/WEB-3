@@ -130,7 +130,7 @@ header{
 }
 
 .logo img{
-    height: 58px;
+    height: 50px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -2588,74 +2588,194 @@ body{
     transform: translateY(-3px);
 }
 
-/* ==========================
-   HAMBURGER MENU
-========================== */
+/* ================= HEADER ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 80px;
+
+    background:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+    z-index:9999;
+}
+
+.logo img{
+    height:55px;
+}
+
+/* ================= HAMBURGER ================= */
 
 .hamburger{
+
+    position:absolute;
+    left:20px;
+
     display:none;
-    width:30px;
+
+    width:34px;
+
     cursor:pointer;
-    z-index:1001;
+
+    z-index:10001;
+
 }
 
 .hamburger span{
+
     display:block;
+
     height:3px;
-    background:#000;
-    margin:6px 0;
-    transition:.3s;
+
+    background:#111;
+
+    margin:7px 0;
+
+    border-radius:20px;
+
+    transition:.35s;
+
 }
 
-/* Header */
+/* Animation */
 
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 8%;
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    background:#fff;
-    z-index:999;
+.hamburger.active span:nth-child(1){
+
+    transform:rotate(45deg) translate(6px,6px);
+
 }
 
-/* Desktop */
+.hamburger.active span:nth-child(2){
 
-nav{
-    display:flex;
-    gap:30px;
+    opacity:0;
+
 }
 
-/* ==========================
-   MOBILE
-========================== */
+.hamburger.active span:nth-child(3){
+
+    transform:rotate(-45deg) translate(8px,-8px);
+
+}
+
+/* ================= MENU ================= */
 
 @media(max-width:768px){
 
+.hamburger{
+display:block;
+}
+
+nav{
+
+position:fixed;
+
+top:0;
+
+left:-280px;
+
+width:280px;
+
+height:100vh;
+
+background:#fff;
+
+display:flex;
+
+flex-direction:column;
+
+padding:100px 30px;
+
+transition:.35s;
+
+box-shadow:5px 0 25px rgba(0,0,0,.15);
+
+z-index:9998;
+
+}
+
+nav a{
+
+margin:15px 0;
+
+font-size:18px;
+
+color:#222;
+
+text-decoration:none;
+
+font-weight:500;
+
+}
+
+nav.active{
+
+left:0;
+
+}
+
+.overlay{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.45);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.3s;
+
+z-index:9997;
+
+}
+
+.overlay.active{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+}
+
+/* ======================
+   MOBILE HEADER
+====================== */
+@media (max-width:768px){
+
+    header{
+        height:60px;
+        padding:0 15px;
+    }
+
+    .logo img{
+        height:40px;
+    }
+
     .hamburger{
-        display:block;
+        left:15px;
+        width:28px;
     }
 
-    nav{
-        position:fixed;
-        top:70px;
-        left:-100%;
-        width:100%;
-        background:#fff;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        padding:30px 0;
-        gap:20px;
-        transition:.4s;
-        box-shadow:0 5px 20px rgba(0,0,0,.1);
-    }
-
-    nav.active{
-        left:0;
+    .hamburger span{
+        margin:5px 0;
     }
 
 }

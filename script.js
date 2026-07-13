@@ -96,17 +96,19 @@ ScrollReveal().reveal('.vision-card', {
 
 const waForm = document.getElementById("waForm");
 
-waForm.addEventListener("submit", function(e){
-    e.preventDefault();
+if (waForm) {
+    waForm.addEventListener("submit", function(e){
 
-    const nama = document.getElementById("nama").value;
-    const email = document.getElementById("email").value;
-    const telepon = document.getElementById("telepon").value;
-    const pesan = document.getElementById("pesan").value;
+        e.preventDefault();
 
-    const nomorWA = "6281319131032"; // nomor WhatsApp tanpa tanda +
+        const nama = document.getElementById("nama").value;
+        const email = document.getElementById("email").value;
+        const telepon = document.getElementById("telepon").value;
+        const pesan = document.getElementById("pesan").value;
 
-    const text =
+        const nomorWA = "6281319131032";
+
+        const text =
 `Halo STARVVO,
 
 Nama : ${nama}
@@ -116,10 +118,11 @@ Telepon : ${telepon}
 Kebutuhan:
 ${pesan}`;
 
-    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(text)}`;
+        const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(text)}`;
 
-    window.open(url, "_blank");
-});
+        window.open(url, "_blank");
+    });
+}
 
 const galleryItems = document.querySelectorAll('.portfolio-image');
 
@@ -137,9 +140,27 @@ galleryItems.forEach(item=>{
   observer.observe(item);
 });
 
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
 
-hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
+const hamburger = document.getElementById("hamburger");
+const nav = document.getElementById("nav-menu");
+const overlay = document.getElementById("overlay");
+
+if (hamburger && nav && overlay){
+
+    hamburger.onclick = () => {
+
+        hamburger.classList.toggle("active");
+        nav.classList.toggle("active");
+        overlay.classList.toggle("active");
+
+    };
+
+    overlay.onclick = () => {
+
+        hamburger.classList.remove("active");
+        nav.classList.remove("active");
+        overlay.classList.remove("active");
+
+    };
+
+}
